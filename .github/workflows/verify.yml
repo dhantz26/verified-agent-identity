@@ -8,14 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-
       - name: Install ClawHub
         run: npx clawhub@latest install verified-agent-identity
 
@@ -23,4 +15,5 @@ jobs:
         run: npx clawhub@latest create-identity
 
       - name: Link Human
-        run: npx clawhub@latest link-human --challenge '{"name": "dhantz26", "description": "dhantz26 AI Agent"}'
+        run: |
+          npx clawhub@latest link-human --challenge '{"name": "dhantz26", "description": "dhantz26 AI Agent"}''
